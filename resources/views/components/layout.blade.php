@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-slate-900">
+<body class="text-white bg-slate-900">
     <nav class="bg-black text-white p-5 flex items-center">
         <a href="{{ route('home') }}" class="text-xl font-black hover:text-neutral-300 transition">
             {{ config('app.name') }}
@@ -32,7 +32,7 @@
         </ul>
 
         <div class="font-semibold ml-auto flex items-center gap-4">
-            <a href="#" class="px-2 py-1 border border-blue-500 rounded
+            <a href="{{ route('signup') }}" class="px-2 py-1 border border-blue-500 rounded
                                hover:bg-blue-500 transition">
                 Sign Up
             </a>
