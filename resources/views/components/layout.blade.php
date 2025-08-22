@@ -36,9 +36,9 @@
                                hover:bg-blue-500 transition">
                 Sign Up
             </a>
-            <a href="#" class="px-2 py-1 border border-blue-500 rounded
+            <a href="{{ route('login') }}" class="px-2 py-1 border border-blue-500 rounded
                                hover:bg-blue-500 transition">
-                Log In
+                Login
             </a>
         </div>
     </nav>
