@@ -6,6 +6,7 @@
             <div class="mb-4">
                 <label for="full_name" class="block text-sm font-medium mb-1">Full Name</label>
                 <input type="text" name="full_name" id="full_name" class="w-full border rounded px-3 py-2" />
+                <p class="text-red-500 text-sm font-semibold mt-1">Nome inválido!</p>
             </div>
 
             <div class="mb-4">
