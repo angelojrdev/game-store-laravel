@@ -3,26 +3,17 @@
         <h1 class="text-2xl font-bold mb-4 text-center">Create account</h1>
 
         <form>
-            <div class="mb-4">
-                <label for="full_name" class="block text-sm font-medium mb-1">Full Name</label>
-                <input type="text" name="full_name" id="full_name" class="w-full border rounded px-3 py-2" />
-                <p class="text-red-500 text-sm font-semibold mt-1">Nome inválido!</p>
-            </div>
+            @csrf
 
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-1">Username</label>
-                <input type="text" class="w-full border rounded px-3 py-2" />
-            </div>
+            <x-form-field label="Full Name" name="full_name" type="text" />
 
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-1">Email</label>
-                <input type="email" class="w-full border rounded px-3 py-2" />
-            </div>
+            <x-form-field label="Username" name="username" type="text" />
 
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-1">Password</label>
-                <input type="password" class="w-full border rounded px-3 py-2" />
-            </div>
+            <x-form-field label="Email" name="email" type="email" />
+
+            <x-form-field label="Password" name="password" type="password" />
+
+            <x-form-field label="Password Confirmation" name="password_confirmation" type="password_confirmation" />
 
             <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
                 Register
