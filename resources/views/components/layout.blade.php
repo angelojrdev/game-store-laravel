@@ -32,14 +32,24 @@
         </ul>
 
         <div class="font-semibold ml-auto flex items-center gap-4">
-            <a href="{{ route('signup') }}" class="px-2 py-1 border border-blue-500 rounded
-                               hover:bg-blue-500 transition">
+            @auth
+            <form method="POST" action="{{ route('auth.destroy') }}">
+                @csrf
+                <button type="submit"
+                    class="px-2 py-1 border border-red-500 rounded hover:bg-red-500 transition cursor-pointer">
+                    Logout
+                </button>
+            </form>
+            @else
+            <a href="{{ route('signup') }}"
+                class="px-2 py-1 border border-blue-500 rounded hover:bg-blue-500 transition">
                 Sign Up
             </a>
-            <a href="{{ route('auth.create') }}" class="px-2 py-1 border border-blue-500 rounded
-                               hover:bg-blue-500 transition">
+            <a href="{{ route('auth.create') }}"
+                class="px-2 py-1 border border-blue-500 rounded hover:bg-blue-500 transition">
                 Login
             </a>
+            @endauth
         </div>
     </nav>
 
