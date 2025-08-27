@@ -36,7 +36,7 @@
                                hover:bg-blue-500 transition">
                 Sign Up
             </a>
-            <a href="{{ route('login') }}" class="px-2 py-1 border border-blue-500 rounded
+            <a href="{{ route('auth.create') }}" class="px-2 py-1 border border-blue-500 rounded
                                hover:bg-blue-500 transition">
                 Login
             </a>
