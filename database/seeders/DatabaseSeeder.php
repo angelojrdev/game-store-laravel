@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\NewsPost;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,13 +15,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
+        $admin = User::factory()->create([
             'username' => 'angelojr',
             'full_name' => 'Angelo Oliveira Jr.',
             'email' => 'angelojr@eg.email',
             'password' => Hash::make('adminpass'),
         ]);
 
-        User::factory(10)->create();
+        NewsPost::factory()->count(5)->create([
+            'author_id' => $admin->id,
+        ]);
+
+        $users = User::factory(10)->create();
+
+        $users->each(function ($user) {
+            NewsPost::factory()->create([
+                'author_id' => $user->id,
+            ]);
+        });
     }
 }
