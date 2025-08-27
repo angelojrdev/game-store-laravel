@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function create()
+    {
+        if (Auth::check())
+            return redirect()->intended();
+
+        return view('login');
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
