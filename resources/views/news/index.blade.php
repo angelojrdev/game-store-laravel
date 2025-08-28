@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="News">
     <div class="flex flex-wrap justify-center gap-6 mt-6">
         @foreach ($posts as $post)
         <div class="bg-black p-6 rounded-lg w-md size-64 flex flex-col justify-between gap-2">

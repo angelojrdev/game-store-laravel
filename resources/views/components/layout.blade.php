@@ -27,7 +27,7 @@
                 <a href="{{ route('news.index') }}" class="hover:text-neutral-300 transition">News</a>
             </li>
             <li>
-                <a href="#" class="hover:text-neutral-300 transition">About</a>
+                <a href="{{ route('about') }}" class="hover:text-neutral-300 transition">About</a>
             </li>
         </ul>
 
