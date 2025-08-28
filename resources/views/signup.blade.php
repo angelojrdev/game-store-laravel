@@ -1,5 +1,5 @@
 <x-layout title="Create account">
-    <div class="mt-12 mx-auto max-w-md bg-black p-6 rounded-lg">
+    <div class="mx-auto max-w-md bg-black p-6 rounded-lg">
         <h1 class="text-2xl font-bold mb-4 text-center">Create account</h1>
 
         <form>

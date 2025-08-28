@@ -24,7 +24,7 @@
                 <a href="#" class="hover:text-neutral-300 transition">Games</a>
             </li>
             <li>
-                <a href="#" class="hover:text-neutral-300 transition">News</a>
+                <a href="{{ route('news.index') }}" class="hover:text-neutral-300 transition">News</a>
             </li>
             <li>
                 <a href="#" class="hover:text-neutral-300 transition">About</a>
@@ -53,7 +53,9 @@
         </div>
     </nav>
 
-    {{ $slot }}
+    <div class="container mx-auto mt-12">
+        {{ $slot }}
+    </div>
 </body>
 
 </html>
