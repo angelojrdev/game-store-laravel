@@ -14,4 +14,9 @@ class NewsPost extends Model
         'title',
         'content',
     ];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 }
