@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="text-white bg-slate-900">
+<body class="text-white bg-blue-900">
     <nav class="bg-black text-white p-5 flex items-center">
         <a href="{{ route('home') }}" class="text-xl font-black hover:text-neutral-300 transition">
             {{ config('app.name') }}
