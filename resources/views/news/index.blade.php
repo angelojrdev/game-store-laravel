@@ -8,7 +8,7 @@
 
             <footer>
                 <span class="font-semibold">
-                    AUTHOR_{{ $post->author_id }}
+                    {{ $post->author->full_name }}
                 </span>
                 •
                 <span class="font-light">
