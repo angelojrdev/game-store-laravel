@@ -15,4 +15,4 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/logout', 'destroy')->name('auth.destroy');
 });
 
-Route::resource('news', NewsPostController::class);
+Route::resource('news', NewsPostController::class)->parameter('news', 'post');

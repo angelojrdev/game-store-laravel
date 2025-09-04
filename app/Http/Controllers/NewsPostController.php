@@ -9,9 +9,9 @@ class NewsPostController extends Controller
 {
     public function index()
     {
-        $posts = NewsPost::with('author')->paginate(10);
+        $posts = NewsPost::paginate(10);
 
-        return view('news.index')->with('posts', $posts);
+        return view('news.index', compact('posts'));
     }
 
     public function create()
@@ -24,9 +24,9 @@ class NewsPostController extends Controller
         //
     }
 
-    public function show(NewsPost $newsPost)
+    public function show(NewsPost $post)
     {
-        //
+        return view('news.show', compact('post'));
     }
 
     public function edit(NewsPost $newsPost)

@@ -2,7 +2,9 @@
     <div class="flex flex-wrap justify-center gap-6 mt-6">
         @foreach ($posts as $post)
         <div class="bg-black p-6 rounded-lg w-md size-64 flex flex-col justify-between gap-2">
-            <header class="truncate font-bold text-2xl">{{ $post->title }}</header>
+            <header class="truncate font-bold text-2xl">
+                <a href="{{ route('news.show', $post) }}">{{ $post->title }}</a>
+            </header>
 
             <p class="line-clamp-3">{{ $post->content }}</p>
 

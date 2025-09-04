@@ -15,6 +15,8 @@ class NewsPost extends Model
         'content',
     ];
 
+    protected $with = ['author'];
+
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
