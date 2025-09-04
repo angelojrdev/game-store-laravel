@@ -53,7 +53,7 @@
         </div>
     </nav>
 
-    <div class="container mx-auto mt-12">
+    <div class="container mx-auto my-12">
         {{ $slot }}
     </div>
 </body>
