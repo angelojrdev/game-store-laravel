@@ -5,7 +5,9 @@
         <form action="{{ route('signup.post') }}" method="POST">
             @csrf
 
-            <x-form-field label="Full Name" name="full_name" type="text" />
+            <x-form-field label="First Name" name="first_name" type="text" />
+
+            <x-form-field label="Last Name" name="last_name" type="text" />
 
             <x-form-field label="Username" name="username" type="text" />
 
