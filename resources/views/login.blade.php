@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-md bg-black p-6 rounded-lg">
         <h1 class="text-2xl font-bold mb-4 text-center">Login</h1>
 
-        <form action="{{ route('auth.store') }}" method="POST">
+        <form action="{{ route('auth.login.post') }}" method="POST">
             @csrf
 
             <x-form-field label="Username" name="username" type="text" />

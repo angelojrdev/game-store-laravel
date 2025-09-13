@@ -5,22 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class SessionController extends Controller
 {
-    public function create()
-    {
-        if (Auth::check()) {
-            return redirect()->intended();
-        }
-
-        return view('login');
-    }
-
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'username' => ['required'],
-            'password' => ['required'],
+            'username' => ['required', 'string', 'min:4', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'max:255'],
         ]);
 
         if (Auth::attempt($validated)) {
@@ -29,9 +20,9 @@ class AuthController extends Controller
             return redirect()->intended();
         }
 
-        return back()->withErrors([
-            'username' => "Couldn't authenticate with provided credentials.",
-        ])->onlyInput('username');
+        return back()
+            ->withErrors(['username' => __('auth.failed')])
+            ->onlyInput('username');
     }
 
     public function destroy(Request $request)
@@ -42,6 +33,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('home');
     }
 }

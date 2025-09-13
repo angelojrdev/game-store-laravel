@@ -33,7 +33,7 @@
 
         <div class="font-semibold ml-auto flex items-center gap-4">
             @auth
-            <form method="POST" action="{{ route('auth.destroy') }}">
+            <form method="POST" action="{{ route('auth.logout.post') }}">
                 @csrf
                 <button type="submit"
                     class="px-2 py-1 border border-red-500 rounded hover:bg-red-500 transition cursor-pointer">
@@ -41,11 +41,11 @@
                 </button>
             </form>
             @else
-            <a href="{{ route('signup') }}"
+            <a href="{{ route('auth.signup') }}"
                 class="px-2 py-1 border border-blue-500 rounded hover:bg-blue-500 transition">
                 Sign Up
             </a>
-            <a href="{{ route('auth.create') }}"
+            <a href="{{ route('auth.login') }}"
                 class="px-2 py-1 border border-blue-500 rounded hover:bg-blue-500 transition">
                 Login
             </a>
