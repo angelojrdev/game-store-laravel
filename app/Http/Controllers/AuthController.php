@@ -9,8 +9,9 @@ class AuthController extends Controller
 {
     public function create()
     {
-        if (Auth::check())
+        if (Auth::check()) {
             return redirect()->intended();
+        }
 
         return view('login');
     }
