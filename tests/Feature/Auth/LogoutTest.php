@@ -5,25 +5,23 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-beforeEach(function () {
-    $this->user = User::factory()->create();
-});
-
 it("allows an authenticated user to logout", function () {
-    $this->actingAs($this->user);
+    $this->actingAs(User::factory()->create());
 
-    $this->post('/logout')->assertRedirect('/');
+    $response = $this->post('/logout');
 
-    $this->assertGuest();
+    $response->assertSessionDoesntHaveErrors();
+    $response->assertRedirect('/');
+    expect(Auth::guest())->toBeTrue();
 });
 
 it('clears user session data on logout', function () {
-    $this->actingAs($this->user);
+    $this->actingAs(User::factory()->create());
+    session()->put('session_data', true);
 
-    session()->put('item', 100);
+    $response = $this->post('/logout');
 
-    $this->post('/logout')->assertRedirect('/');
-
-    $this->assertGuest();
-    $this->assertNull(session('item'));
+    $response->assertSessionDoesntHaveErrors();
+    expect(Auth::guest())->toBeTrue();
+    expect(session('session_data'))->toBeNull();
 });
