@@ -5,7 +5,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it("allows an authenticated user to logout", function () {
+it('allows an authenticated user to logout', function () {
     $this->actingAs(User::factory()->create());
 
     $response = $this->post('/logout');
