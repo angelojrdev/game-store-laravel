@@ -39,21 +39,21 @@ class User extends Authenticatable
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn (mixed $value, array $attributes) => "{$attributes['first_name']} {$attributes['last_name']}",
+            get: fn(mixed $value, array $attributes) => "{$attributes['first_name']} {$attributes['last_name']}",
         );
     }
 
     protected function firstName(): Attribute
     {
         return Attribute::make(
-            set: fn (string $value) => Str::of($value)->trim()->title()->toString(),
+            set: fn(string $value) => Str::of($value)->trim()->title()->toString(),
         );
     }
 
     protected function lastName(): Attribute
     {
         return Attribute::make(
-            set: fn (string $value) => Str::of($value)->trim()->title()->toString(),
+            set: fn(string $value) => Str::of($value)->trim()->title()->toString(),
         );
     }
 

@@ -6,7 +6,7 @@
                 <a href="{{ route('news.show', $news) }}">{{ $news->title }}</a>
             </header>
 
-            <p class="line-clamp-3">{{ $news->content }}</p>
+            <p class="line-clamp-3">{{ $news->content_html }}</p>
 
             <footer>
                 <span class="font-semibold">

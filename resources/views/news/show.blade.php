@@ -4,7 +4,7 @@
             <h1>{{ $news->title }}</h1>
         </header>
 
-        <p>{{ $news->content }}</p>
+        {!! $news->content_html !!}
 
         <footer>
             <span class="font-semibold">
