@@ -30,13 +30,13 @@ class NewsFactory extends Factory
             $paragraphs[] = fake()->realText(750);
 
             if (rand(1, 5) === 1) {
-                $paragraphs[] = "## Subsection";
+                $paragraphs[] = '## Subsection';
             }
         }
 
         return [
-            'title' => Str::replace('?', fake()->jobtitle() . ' Simulator', $titleTemplate),
-            'content' => implode("\n\n", $paragraphs)
+            'title' => Str::replace('?', fake()->jobtitle().' Simulator', $titleTemplate),
+            'content' => implode("\n\n", $paragraphs),
         ];
     }
 }

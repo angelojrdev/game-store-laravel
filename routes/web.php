@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\SessionController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
 

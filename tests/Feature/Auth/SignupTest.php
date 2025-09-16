@@ -5,7 +5,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-it("allows a new user to register successfully", function () {
+it('allows a new user to register successfully', function () {
     $formData = [
         'first_name' => 'Bobby',
         'last_name' => 'Fischer',

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 uses(RefreshDatabase::class);
 
 it('allows an user to login with correct credentials', function () {
-    $password = "password123";
+    $password = 'password123';
     $user = User::factory()->create(['password' => $password]);
 
     $response = $this->post('/login', [
