@@ -6,7 +6,6 @@ use App\Models\NewsPost;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,11 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $admin = User::factory()->create([
-            'username' => 'angelojr',
-            'first_name' => 'Angelo',
-            'last_name' => 'Oliveira Jr.',
-            'email' => 'angelojr@eg.email',
-            'password' => Hash::make('adminpass'),
+            'username' => 'admin',
+            'first_name' => 'Admin',
+            'last_name' => 'User',
+            'email' => 'admin@example.com',
+            'password' => 'admin',
+            'is_admin' => true,
         ]);
 
         NewsPost::factory()->count(5)->create([
