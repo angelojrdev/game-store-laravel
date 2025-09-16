@@ -18,12 +18,12 @@ it("allows a new user to register successfully", function () {
     $response = $this->post('/signup', $formData);
 
     $response->assertSessionDoesntHaveErrors();
-    expect(Auth::check())->toBeTrue();
-    expect(Auth::id())->toBe(
-        User::whereEmail($formData['email'])
-            ->first()
-            ->id,
-    );
+    expect(Auth::check())->toBeTrue()
+        ->and(Auth::id())->toBe(
+            User::whereEmail($formData['email'])
+                ->first()
+                ->id,
+        );
 });
 
 it('fails registration when required fields are missing', function () {
@@ -38,8 +38,8 @@ it('fails registration when required fields are missing', function () {
     $response = $this->post('/signup', $formData);
 
     $response->assertSessionHasErrors(array_keys($formData));
-    expect(Auth::check())->toBeFalse();
-    expect(User::count())->toBe(0);
+    expect(Auth::check())->toBeFalse()
+        ->and(User::count())->toBe(0);
 });
 
 it('fails registration with duplicate email', function () {
@@ -56,8 +56,8 @@ it('fails registration with duplicate email', function () {
     $response = $this->post('/signup', $formData);
 
     $response->assertSessionHasErrors('email');
-    expect(User::whereEmail($email)->count())->toBe(1);
-    expect(Auth::check())->toBeFalse();
+    expect(User::whereEmail($email)->count())->toBe(1)
+        ->and(Auth::check())->toBeFalse();
 });
 
 it("fails registration when password confirmation doesn't match", function () {
@@ -73,6 +73,6 @@ it("fails registration when password confirmation doesn't match", function () {
     $response = $this->post('/signup', $formData);
 
     $response->assertSessionHasErrors('password');
-    expect(User::whereEmail($formData['email'])->exists())->toBeFalse();
-    expect(Auth::check())->toBeFalse();
+    expect(User::whereEmail($formData['email'])->exists())->toBeFalse()
+        ->and(Auth::check())->toBeFalse();
 });

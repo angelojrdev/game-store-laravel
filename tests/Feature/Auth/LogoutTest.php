@@ -22,6 +22,6 @@ it('clears user session data on logout', function () {
     $response = $this->post('/logout');
 
     $response->assertSessionDoesntHaveErrors();
-    expect(Auth::guest())->toBeTrue();
-    expect(session('session_data'))->toBeNull();
+    expect(Auth::guest())->toBeTrue()
+        ->and(session('session_data'))->toBeNull();
 });
