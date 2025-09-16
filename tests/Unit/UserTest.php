@@ -47,5 +47,5 @@ it('has a hasMany relationship with news', function () {
         'author_id' => $user->id,
     ]);
 
-    expect($user->newsPosts->count())->toBe(3);
+    expect($user->news->count())->toBe(3);
 });

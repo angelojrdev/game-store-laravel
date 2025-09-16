@@ -43,6 +43,6 @@ class CreateAdminUser extends Command
         $user->is_admin = true;
         $user->save();
 
-        $this->info("Admin user '{$user->fullName}' created successfully!");
+        $this->info("Admin user '{$user->full_name}' created successfully!");
     }
 }
