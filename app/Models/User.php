@@ -46,14 +46,14 @@ class User extends Authenticatable
     protected function firstName(): Attribute
     {
         return Attribute::make(
-            set: fn(string $value) => Str::of($value)->trim()->title(),
+            set: fn(string $value) => Str::of($value)->trim()->title()->toString(),
         );
     }
 
     protected function lastName(): Attribute
     {
         return Attribute::make(
-            set: fn(string $value) => Str::of($value)->trim()->title(),
+            set: fn(string $value) => Str::of($value)->trim()->title()->toString(),
         );
     }
 
