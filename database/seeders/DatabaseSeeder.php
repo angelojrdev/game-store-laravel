@@ -23,14 +23,14 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
 
-        NewsPost::factory()->count(5)->create([
+        $users = User::factory(5)->create();
+
+        NewsPost::factory()->count(2)->create([
             'author_id' => $admin->id,
         ]);
 
-        $users = User::factory(10)->create();
-
         $users->each(function ($user) {
-            NewsPost::factory()->create([
+            NewsPost::factory()->count(2)->create([
                 'author_id' => $user->id,
             ]);
         });
