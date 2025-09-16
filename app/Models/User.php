@@ -57,8 +57,8 @@ class User extends Authenticatable
         );
     }
 
-    public function newsPosts()
+    public function news()
     {
-        return $this->hasMany(NewsPost::class, 'author_id');
+        return $this->hasMany(News::class, 'author_id');
     }
 }

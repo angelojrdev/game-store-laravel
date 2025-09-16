@@ -1,20 +1,20 @@
 <x-layout title="News">
     <div class="flex flex-wrap justify-center gap-6 mt-6">
-        @foreach ($posts as $post)
+        @foreach ($newsList as $news)
         <div class="bg-black p-6 rounded-lg w-md size-64 flex flex-col justify-between gap-2">
             <header class="truncate font-bold text-2xl">
-                <a href="{{ route('news.show', $post) }}">{{ $post->title }}</a>
+                <a href="{{ route('news.show', $news) }}">{{ $news->title }}</a>
             </header>
 
-            <p class="line-clamp-3">{{ $post->content }}</p>
+            <p class="line-clamp-3">{{ $news->content }}</p>
 
             <footer>
                 <span class="font-semibold">
-                    {{ $post->author->full_name }}
+                    {{ $news->author->full_name }}
                 </span>
                 •
                 <span class="font-light">
-                    {{ $post->created_at->format('m/d/Y') }}
+                    {{ $news->created_at->format('m/d/Y') }}
                 </span>
             </footer>
         </div>

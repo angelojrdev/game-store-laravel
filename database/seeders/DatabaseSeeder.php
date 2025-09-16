@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\NewsPost;
+use App\Models\News;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,12 +25,12 @@ class DatabaseSeeder extends Seeder
 
         $users = User::factory(5)->create();
 
-        NewsPost::factory()->count(2)->create([
+        News::factory()->count(2)->create([
             'author_id' => $admin->id,
         ]);
 
         $users->each(function ($user) {
-            NewsPost::factory()->count(2)->create([
+            News::factory()->count(2)->create([
                 'author_id' => $user->id,
             ]);
         });

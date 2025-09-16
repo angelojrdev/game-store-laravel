@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\NewsPost;
+use App\Models\News;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -43,7 +43,7 @@ it('hashes password automatically through casting', function () {
 
 it('has a hasMany relationship with news', function () {
     $user = User::factory()->create();
-    NewsPost::factory()->count(3)->create([
+    News::factory()->count(3)->create([
         'author_id' => $user->id,
     ]);
 

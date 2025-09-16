@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\NewsPostController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +29,4 @@ Route::name('auth.')->group(function () {
         ->name('logout.post');
 });
 
-Route::resource('news', NewsPostController::class)->parameter('news', 'post');
+Route::resource('news', NewsController::class);
