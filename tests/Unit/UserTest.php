@@ -23,7 +23,7 @@ it('has a valid "full name" property', function () {
     expect($user->full_name)->toBe('John Doe');
 });
 
-it('correctly sanitizes "first name" and "last name" on attribution', function () {
+it('sanitizes "first name" and "last name" when setting them', function () {
     $user = new User([
         'first_name' => ' JOhN ',
         'last_name' => ' dOe JR. ',
@@ -33,7 +33,7 @@ it('correctly sanitizes "first name" and "last name" on attribution', function (
         ->and($user->last_name)->toBe('Doe Jr.');
 });
 
-it('hashes password automatically', function () {
+it('hashes password when it is set', function () {
     $user = new User([
         'password' => 'secret123',
     ]);
@@ -41,7 +41,7 @@ it('hashes password automatically', function () {
     expect(Hash::check('secret123', $user->password))->toBe(true);
 });
 
-it('has a "hasMany" relationship with news', function () {
+it('has a relationship with "News"', function () {
     $user = User::factory()->create();
     News::factory()->count(3)->create([
         'author_id' => $user->id,

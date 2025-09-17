@@ -15,7 +15,7 @@ it('has a valid factory', function () {
     expect(News::whereId($news->id)->exists())->toBeTrue();
 });
 
-it('fetches the author relationship', function () {
+it('has a relationship with "User" (author)', function () {
     $news = News::factory()->create([
         'author_id' => User::factory()->create()->id,
     ]);
