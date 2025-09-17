@@ -15,6 +15,7 @@ class News extends Model
     protected $fillable = [
         'title',
         'content',
+        'author_id',
     ];
 
     protected $with = ['author'];
