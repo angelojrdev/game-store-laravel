@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
-        $validated = $request->validate([
-            'username' => ['required', 'string', 'min:4', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'max:255'],
-        ]);
-
-        if (Auth::attempt($validated)) {
+        if (Auth::attempt($request->validated())) {
             $request->session()->regenerate();
 
             return redirect()->intended();
