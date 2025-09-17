@@ -14,7 +14,7 @@ it('has a valid factory', function () {
     expect(User::whereId($user->id)->exists())->toBeTrue();
 });
 
-it('generates full_name successfully from first_name and last_name', function () {
+it('has a valid "full name" property', function () {
     $user = new User([
         'first_name' => 'John',
         'last_name' => 'Doe',
@@ -23,7 +23,7 @@ it('generates full_name successfully from first_name and last_name', function ()
     expect($user->full_name)->toBe('John Doe');
 });
 
-it('correctly formats first_name and last_name on attribution', function () {
+it('correctly sanitizes "first name" and "last name" on attribution', function () {
     $user = new User([
         'first_name' => ' JOhN ',
         'last_name' => ' dOe JR. ',
@@ -33,7 +33,7 @@ it('correctly formats first_name and last_name on attribution', function () {
         ->and($user->last_name)->toBe('Doe Jr.');
 });
 
-it('hashes password automatically through casting', function () {
+it('hashes password automatically', function () {
     $user = new User([
         'password' => 'secret123',
     ]);
@@ -41,7 +41,7 @@ it('hashes password automatically through casting', function () {
     expect(Hash::check('secret123', $user->password))->toBe(true);
 });
 
-it('has a hasMany relationship with news', function () {
+it('has a "hasMany" relationship with news', function () {
     $user = User::factory()->create();
     News::factory()->count(3)->create([
         'author_id' => $user->id,
