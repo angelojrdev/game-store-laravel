@@ -9,7 +9,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return view('news.index')->with('newsList', News::paginate(10));
+        return view('news.index')->with('newsList', News::with('author')->paginate(10));
     }
 
     public function create()

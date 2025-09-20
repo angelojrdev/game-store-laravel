@@ -18,8 +18,6 @@ class News extends Model
         'author_id',
     ];
 
-    protected $with = ['author'];
-
     protected function contentHtml(): Attribute
     {
         return Attribute::make(
