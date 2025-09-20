@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,6 +23,15 @@ class CreateAdminUser extends Command
      * @var string
      */
     protected $description = 'Create a new admin user';
+
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        parent::__construct();
+
+        $this->userService = $userService;
+    }
 
     /**
      * Execute the console command.
@@ -50,9 +60,7 @@ class CreateAdminUser extends Command
             return;
         }
 
-        $user = User::create($form);
-        $user->is_admin = true;
-        $user->save();
+        $user = $this->userService->registerAdmin($form);
 
         $this->info("Admin user '{$user->full_name}' created successfully!");
     }

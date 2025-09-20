@@ -14,6 +14,16 @@ it('has a valid factory', function () {
     expect(User::whereId($user->id)->exists())->toBeTrue();
 });
 
+it('creates an admin user', function () {
+    $form = User::factory()->make()->toArray();
+    $form['password'] = 'password';
+
+    $user = User::createAdmin($form);
+
+    expect(User::whereId($user->id)->exists())->toBeTrue()
+        ->and($user->is_admin);
+});
+
 it('has a valid "full name" property', function () {
     $user = new User([
         'first_name' => 'John',

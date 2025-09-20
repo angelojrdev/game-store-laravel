@@ -36,6 +36,15 @@ class User extends Authenticatable
         ];
     }
 
+    public static function createAdmin(array $data): self
+    {
+        $user = new static($data);
+        $user->is_admin = true;
+        $user->save();
+
+        return $user;
+    }
+
     protected function fullName(): Attribute
     {
         return Attribute::make(
@@ -54,6 +63,13 @@ class User extends Authenticatable
     {
         return Attribute::make(
             set: fn(string $value) => Str::of($value)->trim()->title()->toString(),
+        );
+    }
+
+    protected function isAdmin(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => (bool) $attributes['is_admin'],
         );
     }
 

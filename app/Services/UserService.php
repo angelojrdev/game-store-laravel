@@ -11,6 +11,11 @@ class UserService
         return User::create($data);
     }
 
+    public function registerAdmin(array $data): User
+    {
+        return User::createAdmin($data);
+    }
+
     public function update(array $data, User $user): bool
     {
         return $user->update($data);
