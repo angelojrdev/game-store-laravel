@@ -2,8 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Validator;
 
 class CreateAdminUser extends Command
 {
@@ -12,7 +14,7 @@ class CreateAdminUser extends Command
      *
      * @var string
      */
-    protected $signature = 'user:new-admin';
+    protected $signature = 'make:admin';
 
     /**
      * The console command description.
@@ -26,17 +28,26 @@ class CreateAdminUser extends Command
      */
     public function handle()
     {
+        $rules = (new RegisterUserRequest())->rules();
+
         $form = [
             'username' => $this->ask('Username'),
             'first_name' => $this->ask('First Name'),
             'last_name' => $this->ask('Last Name'),
             'email' => $this->ask('Email Address'),
             'password' => $this->secret('Password'),
-            'is_admin' => true,
+            'password_confirmation' => $this->secret('Confirm Password'),
         ];
 
-        if ($form['password'] !== $this->secret('Confirm Password')) {
-            $this->fail('Passwords do not match!');
+        $validator = Validator::make($form, $rules);
+
+        if ($validator->fails()) {
+            $this->error('Validation failed:');
+            foreach ($validator->errors()->all() as $error) {
+                $this->error($error);
+            }
+
+            return;
         }
 
         $user = User::create($form);
