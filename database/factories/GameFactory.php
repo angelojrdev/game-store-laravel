@@ -26,7 +26,7 @@ class GameFactory extends Factory
         }
 
         return [
-            'title' => fake()->jobtitle() . ' Simulator',
+            'title' => fake()->jobtitle().' Simulator',
             'description' => implode("\n\n", $paragraphs),
             'price' => $this->faker->randomFloat(2, 0, 100),
         ];

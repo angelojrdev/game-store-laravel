@@ -40,7 +40,7 @@ class GameService
 
     private function authorize(User $user): void
     {
-        if (!$user->is_admin) {
+        if (! $user->is_admin) {
             throw new \LogicException('Only admin users can modify this resource.');
         }
     }

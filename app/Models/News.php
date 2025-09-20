@@ -21,7 +21,7 @@ class News extends Model
     protected function contentHtml(): Attribute
     {
         return Attribute::make(
-            get: fn() => Str::markdown($this->content, [
+            get: fn () => Str::markdown($this->content, [
                 'html_input' => 'escape',
                 'allow_unsafe_links' => false,
             ]),

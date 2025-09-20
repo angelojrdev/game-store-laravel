@@ -3,13 +3,14 @@
 use App\Services\UserService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;
 
 uses(TestCase::class, RefreshDatabase::class);
 
 it('registers a user', function () {
-    $userService = new UserService();
+    $userService = new UserService;
     $data = [
         'first_name' => 'John',
         'last_name' => 'Doe',
@@ -25,7 +26,7 @@ it('registers a user', function () {
 });
 
 it('updates a user', function () {
-    $userService = new UserService();
+    $userService = new UserService;
     $user = $userService->register([
         'first_name' => 'John',
         'last_name' => 'Doe',
@@ -40,7 +41,7 @@ it('updates a user', function () {
 });
 
 it('deletes a user', function () {
-    $userService = new UserService();
+    $userService = new UserService;
     $user = $userService->register([
         'first_name' => 'John',
         'last_name' => 'Doe',

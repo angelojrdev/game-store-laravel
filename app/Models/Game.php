@@ -21,7 +21,7 @@ class Game extends Model
     protected function descriptionHtml(): Attribute
     {
         return Attribute::make(
-            get: fn() => Str::markdown($this->description, [
+            get: fn () => Str::markdown($this->description, [
                 'html_input' => 'escape',
                 'allow_unsafe_links' => false,
             ]),

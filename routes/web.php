@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');

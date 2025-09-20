@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Http\Requests\RegisterUserRequest;
-use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
@@ -38,7 +37,7 @@ class CreateAdminUser extends Command
      */
     public function handle()
     {
-        $rules = (new RegisterUserRequest())->rules();
+        $rules = (new RegisterUserRequest)->rules();
 
         $form = [
             'username' => $this->ask('Username'),
